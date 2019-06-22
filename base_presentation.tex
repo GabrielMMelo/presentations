@@ -1,0 +1,158 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english,brazil]{babel}
+\usepackage{multicol}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[labelformat=empty]{caption}
+%\usepackage{enumitem}
+
+% for icons
+\usepackage{fontawesome}
+
+% usando tema personalizado. 
+% arquivo beamerthemeIFSC.sty deve estar no mesmo diretório do .tex
+\usetheme{ifsc}
+
+
+\hypersetup{pdfstartview={Fit},pdftitle={Aula SEP: Transmissão e Distribuição de Energia},
+ 	pdfsubject={Técnico em Eletrotécnica},pdfauthor={Arthur G. Bartsch}
+}
+\newcommand{\subitem}[1]{\begin{itemize}
+\item #1
+\end{itemize}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Programabilidade de redes com eBPF no contexto de IoT}
+\subtitle{Projeto de TCC}
+\author{Gabriel M. de Melo}
+\date{2019/02}
+\institute{
+Universidade Federal de Lavras\\
+Lavras - MG \\
+~\\
+GCC220 - Metodologia de Pesquisa\\
+~\\
+\url{gabrielmarquesm@estudante.ufla.br}\\
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{frame}[t]
+	\maketitle
+\end{frame}
+
+\frame{\frametitle{Sumário}
+\tableofcontents}
+
+\def\sectionname{}
+\def\insertsectionnumber{}
+\def\subsectionname{}
+\def\insertsubsectionnumber{}
+
+
+
+%\setbeamertemplate{section page}
+%{
+%    \begin{centering}
+%    \begin{beamercolorbox}[sep=12pt,center]{part title}
+%    \usebeamerfont{section title}\insertsection\par
+%    \end{beamercolorbox}
+%
+%    \end{centering}
+%}
+
+\AtBeginSection{\frame{\sectionpage}\addtocounter{framenumber}{-1} }% \vspace{1cm}
+%\tableofcontents[hideothersubsections,sectionstyle=hide/hide,subsectionstyle=hide/show]}}
+
+%\AtBeginSection{\frame{\sectionpage \vspace{1cm}}
+%\tableofcontents[currentsubsection,hideothersubsections,sectionstyle=show/hide,subsectionstyle=show/shaded] 
+%}
+
+\AtBeginSubsection{\frame{\subsectionpage}\addtocounter{framenumber}{-1} }
+\AtBeginSubsubsection{\frame{\subsubsectionpage}\addtocounter{framenumber}{-1} }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inicio do documento
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\section{Listas}
+%
+%
+%\begin{frame}{Apenas começando}
+%	\begin{itemize}
+%		\item Primeiro item
+%		\item Segundo item
+%		\item Terceiro item 
+%	\end{itemize}
+%	\begin{enumerate}
+%		\item Primeiro item
+%		\item Segundo item
+%		\item Terceiro item 
+%	\end{enumerate}
+%\end{frame}
+%
+%\subsection{Blocos}
+%
+%
+%\begin{frame}{Blocos}
+%	\begin{block}{Esse é um bloco}
+%		Isso é um teste
+%	\end{block}
+%	\begin{block}{}
+%	Bloco sem título	
+%	\end{block}
+%	\begin{alertblock}{Alerta}
+%		Esse é um alerta
+%	\end{alertblock}
+%\end{frame}
+
+%
+%\begin{frame}[fragile]{Código em C e Java}
+%\ansic
+%	\begin{lstlisting}
+%	 int main(void){
+%	    printf("Ola mundo\n");
+%	    return 0;
+%	 }
+%	\end{lstlisting}
+%\java
+%	\begin{lstlisting}
+%	 public static voi main(String args[]){
+%	    System.out.println("Ola mundo");
+%	 }
+%	\end{lstlisting}	
+%\end{frame}
+
+
+\include{proj_tcc}
+
+% foto, email, linkedin e github
+\begin{frame}{Contato}
+{\centering Gabriel Marques de Melo \hspace{190pt}{\Large \color{black} \faLinux}}
+    \vspace{15pt}
+	\item {\huge \faGithub} \url{github.com/gabrielmmelo}
+	\vspace{15pt}
+	\item {\huge \faLinkedin} \url{linkedin.com/gabrielmmelo} 
+	\vspace{15pt}
+	\item {\huge \faEnvelopeO} \url{gabrielmarquesm@estudante.ufla.br} 
+\vspace{15pt}
+\begin{center}
+    \small
+    \textit{``Qualquer tecnologia suficientemente avançada \\
+    é indistinta de magia``} \\
+    \vspace{5pt}
+    \footnotesize Arthur C. Clarke 
+\end{center}	
+	
+\end{frame}
+\end{document}

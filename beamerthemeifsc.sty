@@ -1,0 +1,104 @@
+% IFSC presentation theme
+% 2015-05-21 - Emerson Ribeiro de Mello - mello@ifsc.edu.br
+\ProvidesPackage{beamerthemeifsc}[2015/05/20]
+
+%%%%%%%%%%%%%% THEME %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{pgf}
+\RequirePackage{graphicx}
+\RequirePackage{url,color,ae}
+\RequirePackage{listings,color,upquote}
+\RequirePackage{array}
+\RequirePackage{xpatch}
+
+
+\definecolor{purplerain}{RGB}{136,114,194}
+\definecolor{kugreen}{RGB}{50,93,61}
+\definecolor{kugreenlys}{RGB}{132,158,139}
+\definecolor{kugreenlyslys}{RGB}{173,190,177}
+\definecolor{kugreenlyslyslys}{RGB}{214,223,216}
+
+\definecolor{AlTitle}{RGB}{255, 190, 190}
+\definecolor{AlBody}{RGB}{213,24,0}
+
+\definecolor{ExTitle}{RGB}{201, 217, 217}
+
+\usecolortheme[named=purplerain]{structure}
+\setbeamercolor{block title}{fg = white, bg = purplerain}
+\setbeamercolor{block body}{bg = purplerain!15!white}
+\setbeamercolor{block title alerted}{bg = AlTitle}
+\setbeamercolor{block body alerted}{bg = AlBody!5!white}
+\setbeamercolor{block title example}{bg = ExTitle}
+\setbeamercolor{block body example}{bg = ExTitle!15!white}
+\setbeamertemplate{blocks}[rounded]
+
+\patchcmd\beamer@@tmpl@frametitle{sep=0.3cm}{sep=0.7cm}{}{}
+
+\pgfdeclareimage[width=\paperwidth]{footer}{img/rodape-ufla}
+
+\setbeamersize{text margin left=20pt,text margin right=20pt}
+
+\setbeamertemplate{navigation symbols}{}
+\addtobeamertemplate{frametitle}{}{\color{purplerain}
+\pgfline{\pgfpoint{1mm}{-2mm}}{\pgfpoint{10.8cm}{-2mm}}}
+\setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{title}{series=\bfseries}
+\useinnertheme{rectangles}
+\setbeamertemplate{headline}[text line]{}
+
+
+
+\newcommand{\Linha}{%
+\raisebox{0mm}[0pt][0pt]{%
+\begin{pgfpicture}{0mm}{0mm}{0mm}{0mm}
+\pgfsetlinewidth{1mm}
+\color{purplerain}
+\pgfline{\pgfpoint{1.2mm}{-2mm}}{\pgfpoint{10cm}{-2mm}}
+\end{pgfpicture}}}
+
+\addtobeamertemplate{title page}{\Linha}
+
+%\setbeamerfont{footline}{series=\bfseries }
+
+\setbeamertemplate{footline}{
+\pgfuseimage{footer}%
+\color{white}
+\pgftext[at=\pgfpoint{-35pt}{5pt},center,bottom]{\insertframenumber/\inserttotalframenumber}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%--------- Insercao de codigo fonte nos slides --------------------%
+\definecolor{hellgelb}{rgb}{1,1,0.9}
+\definecolor{colKeys}{rgb}{0,0,0}
+\definecolor{colIdentifier}{rgb}{0,0,0.9}
+\definecolor{colComments}{rgb}{.4,.4,.4}
+\definecolor{colString}{rgb}{0,0,0.6}
+
+% Comando: \java
+\newcommand{\javapequeno}
+{\lstset{language=java,basicstyle=\ttfamily\tiny,tabsize=3,frame=single,showtabs=false,showspaces=false,firstnumber=last,numbers=left,numberstyle=\tiny,linewidth=0.98\linewidth,xleftmargin=21pt,tab=$\to$,float=tbph,extendedchars,breaklines,showstringspaces=false,identifierstyle=\color{colIdentifier},keywordstyle=\color{colKeys},stringstyle=\color{colString},commentstyle=\color{colComments},backgroundcolor=\color{hellgelb},columns=flexible,captionpos=b,aboveskip=\bigskipamount}}
+
+\newcommand{\java}
+{\lstset{language=java,basicstyle=\ttfamily\footnotesize,tabsize=3,frame=single,showtabs=false,showspaces=false,firstnumber=last,numbers=left,numberstyle=\tiny,linewidth=0.98\linewidth,xleftmargin=21pt,tab=$\to$,float=tbph,extendedchars,breaklines,showstringspaces=false,identifierstyle=\color{colIdentifier},keywordstyle=\color{colKeys},stringstyle=\color{colString},commentstyle=\color{colComments},backgroundcolor=\color{hellgelb},columns=flexible,captionpos=b,aboveskip=\bigskipamount}}
+
+% Comando: \ansic
+\newcommand{\ansic}
+{\lstset{language=c,basicstyle=\ttfamily\footnotesize,tabsize=3,frame=single,showtabs=false,showspaces=false,firstnumber=last,numbers=left,numberstyle=\tiny,linewidth=0.98\linewidth,xleftmargin=21pt,tab=$\to$,float=tbph,extendedchars,breaklines,showstringspaces=false,identifierstyle=\color{colIdentifier},keywordstyle=\color{colKeys},stringstyle=\color{colString},commentstyle=\color{colComments},backgroundcolor=\color{hellgelb},columns=flexible,captionpos=b,aboveskip=\bigskipamount}}
+
+% Comando: \shell
+\newcommand{\shell}
+{\lstset{language=csh,basicstyle=\ttfamily\footnotesize,tabsize=3,frame=single,showtabs=false,showspaces=false,firstnumber=last,numbers=left,numberstyle=\tiny,linewidth=0.98\linewidth,xleftmargin=21pt,tab=$\to$,float=tbph,extendedchars,breaklines,showstringspaces=false,identifierstyle=\color{colIdentifier},keywordstyle=\color{colKeys},stringstyle=\color{colString},commentstyle=\color{colComments},backgroundcolor=\color{hellgelb},columns=flexible,captionpos=b,aboveskip=\bigskipamount}}
+
+\newcommand{\shellpequeno}
+{\lstset{language=csh,basicstyle=\ttfamily\scriptsize,tabsize=3,frame=single,showtabs=false,showspaces=false,numbers=left,numberstyle=\tiny,linewidth=0.98\linewidth,xleftmargin=21pt,tab=$\to$,float=tbph,extendedchars,breaklines,showstringspaces=false,identifierstyle=\color{colIdentifier},keywordstyle=\color{colKeys},stringstyle=\color{colString},commentstyle=\color{colComments},backgroundcolor=\color{hellgelb},columns=flexible,captionpos=b,aboveskip=\bigskipamount}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
